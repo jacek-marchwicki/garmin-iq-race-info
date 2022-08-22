@@ -1,7 +1,7 @@
 <properties>
-    <property id="raceNotes" type="string"><![CDATA[176km - Start,163km - Lotos (24h) - Złotniki,160km - Nocleg +12km - Kiekrz,152km - u Taty - Sady ,150km - Las  - Lusowo,140km - Orlen (24h) - Więckowice,127km - Las - Mirosławki,120km - Orlen (24h) - Stęszew ,108km - Orlen (24h) + 2km - Mosina,106km - Las +8km - Mosina,99km - Aspirynka BIS (7:00 - 20:00) - Swiatniki n Warta,99km - Las +8km - Świątniki,87km - Lotos (24h) - Kórnik,85km - Orlen (24h) - Kórnik]]></property>
+    <property id="raceNotes" type="string"><![CDATA[176km - Start,163km - Lotos (24h) - Złotniki,160km - Nocleg +12km - Kiekrz,152km - u Taty - Sady ,150km - Las  - Lusowo,140km - Orlen (24h) - Więckowice,127km - Las - Mirosławki,120km - Orlen (24h) - Stęszew - - ,108km - Orlen (24h) + 2km - Mosina,106km - Las +8km - Mosina,99km - Aspirynka BIS (7:00 - 20:00) - Swiatniki n Warta,99km - Las +8km - Świątniki,87km - Lotos (24h) - Kórnik,85km - Orlen (24h) - Kórnik,56km - Orlen (6:00 - 22:00) - Kostszyn,56km - Hawa (24h) - Kostszyn,46.5km - Hawa (5:00 - 23:00) +7km - Borwo-Młyn na Biskupice,42km - Las - Wroczyn,40km - Las - Bednary,22km - Zeręba Kłos (6:00 - 22:00) - Murowana Goślina,22km - Orlen (24h) +3km - Murowana Goślina,16.7 km - Las - Mściszewo]]></property>
 
-    <property id="passedCount" type="number">1</property>
+    <property id="passedCount" type="number">2</property>
     <!-- <property id="raceNotes" type="string"><![CDATA[• 176km - Start
 • 163km - Lotos (24h) - Złotniki
 • 160km - Nocleg +12km - Kiekrz

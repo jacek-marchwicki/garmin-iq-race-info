@@ -24,34 +24,7 @@ class RaceInfoView extends WatchUi.DataField {
     // Set your layout here. Anytime the size of obscurity of
     // the draw context is changed this will be called.
     function onLayout(dc as Dc) as Void {
-        var obscurityFlags = DataField.getObscurityFlags();
-
-        // Top left quadrant so we'll use the top left layout
-        if (obscurityFlags == (OBSCURE_TOP | OBSCURE_LEFT)) {
-            View.setLayout(Rez.Layouts.TopLeftLayout(dc));
-
-        // Top right quadrant so we'll use the top right layout
-        } else if (obscurityFlags == (OBSCURE_TOP | OBSCURE_RIGHT)) {
-            View.setLayout(Rez.Layouts.TopRightLayout(dc));
-
-        // Bottom left quadrant so we'll use the bottom left layout
-        } else if (obscurityFlags == (OBSCURE_BOTTOM | OBSCURE_LEFT)) {
-            View.setLayout(Rez.Layouts.BottomLeftLayout(dc));
-
-        // Bottom right quadrant so we'll use the bottom right layout
-        } else if (obscurityFlags == (OBSCURE_BOTTOM | OBSCURE_RIGHT)) {
-            View.setLayout(Rez.Layouts.BottomRightLayout(dc));
-
-        // Use the generic, centered layout
-        } else {
-            View.setLayout(Rez.Layouts.MainLayout(dc));
-            var labelView = View.findDrawableById("label");
-            labelView.locY = labelView.locY - 16;
-            var valueView = View.findDrawableById("value");
-            valueView.locY = valueView.locY + 7;
-        }
-
-        (View.findDrawableById("label") as Text).setText(Rez.Strings.label);
+        View.setLayout(Rez.Layouts.MainLayout(dc));
     }
 
     // The given info object contains all the current workout information.
@@ -77,11 +50,17 @@ class RaceInfoView extends WatchUi.DataField {
 
         // Set the foreground color and value
         var value = View.findDrawableById("value") as Text;
+        var label = View.findDrawableById("label") as Text;
         if (getBackgroundColor() == Graphics.COLOR_BLACK) {
             value.setColor(Graphics.COLOR_WHITE);
         } else {
             value.setColor(Graphics.COLOR_BLACK);
         }
+        var labelText = "";
+        if (mValue != null) {
+            labelText = WatchUi.loadResource(Rez.Strings.label) + (mValue/1000.0).format("%.0f") + "km";
+        }
+        label.setText(labelText);
         value.setText(calculate());
 
         // Call parent's onUpdate(dc) to redraw the layout
@@ -131,11 +110,15 @@ class RaceInfoView extends WatchUi.DataField {
     function findNearest(notes as Array<Note>, distance as Float) as Array<Note> {
         for (var i = 0; i < notes.size(); i++) {
             var location = notes[i].mLocation;
-            if (location != null && location < distance) {
+            if (location != null && distance > location) {
                 return i;
             }
         }
-        return 0;
+        if (notes.size() == 0) {
+            return 0;
+        } else {
+            return notes.size() - 1;
+        }
     }
 
     function notesWithinRange(notes as Array<Note>, distance as Float, passedCount as Long) as Array<Note> {
@@ -147,13 +130,16 @@ class RaceInfoView extends WatchUi.DataField {
         return notes.slice(position, notes.size());
     }
 
-    function notesToText(notes as Array<Note>) as String {
+    function notesToText(notes as Array<Note>, distance as Float) as String {
         if (notes.size() == 0) {
             return "No notes found";
         }
         var output = "";
         for (var i = 0; i < notes.size(); i++) {
             var note = notes[i];
+            if (distance != null && note.mLocation != null && note.mLocation > distance) {
+                output = output + "*";
+            }
             output = output + note.mText;
             output = output + "\n";
         }
@@ -168,9 +154,8 @@ class RaceInfoView extends WatchUi.DataField {
         var passedCount = Application.getApp().getProperty("passedCount");
         
         var notes = parseProperties(raceNotes);
-        // return notesToText(notes);
         var ranged = notesWithinRange(notes, mValue, passedCount);
-        return notesToText(ranged);
+        return notesToText(ranged, mValue);
     }
 
 }
