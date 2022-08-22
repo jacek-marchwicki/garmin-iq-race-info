@@ -1,0 +1,19 @@
+<properties>
+    <property id="raceNotes" type="string"><![CDATA[176km - Start,163km - Lotos (24h) - Złotniki,160km - Nocleg +12km - Kiekrz,152km - u Taty - Sady ,150km - Las  - Lusowo,140km - Orlen (24h) - Więckowice,127km - Las - Mirosławki,120km - Orlen (24h) - Stęszew ,108km - Orlen (24h) + 2km - Mosina,106km - Las +8km - Mosina,99km - Aspirynka BIS (7:00 - 20:00) - Swiatniki n Warta,99km - Las +8km - Świątniki,87km - Lotos (24h) - Kórnik,85km - Orlen (24h) - Kórnik]]></property>
+
+    <property id="passedCount" type="number">1</property>
+    <!-- <property id="raceNotes" type="string"><![CDATA[• 176km - Start
+• 163km - Lotos (24h) - Złotniki
+• 160km - Nocleg +12km - Kiekrz
+• 152km - u Taty - Sady 
+• 150km - Las  - Lusowo
+• 140km - Orlen (24h) - Więckowice
+• 127km - Las - Mirosławki
+• 120km - Orlen (24h) - Stęszew 
+• 108km - Orlen (24h) + 2km - Mosina
+• 106km - Las +8km - Mosina
+• 99km - Aspirynka BIS (7:00 - 20:00) - Swiatniki n Warta
+• 99km - Las +8km - Świątniki
+• 87km - Lotos (24h) - Kórnik
+• 85km - Orlen (24h) - Kórnik]]></property> -->
+</properties>

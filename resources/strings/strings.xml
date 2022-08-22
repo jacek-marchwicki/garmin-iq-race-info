@@ -1,0 +1,8 @@
+<strings>
+    <string id="AppName">Race Info</string>
+    <string id="RaceNotesTitle">Race Notes</string>
+    <string id="PassedCountTitle">Count of displayed passed items</string>
+    <string id="PassedCountErrorMessage">You need to provide value from 0 to 10</string>
+
+    <string id="label">My Value</string>
+</strings>

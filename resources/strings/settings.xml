@@ -1,0 +1,9 @@
+<settings>
+
+    <setting propertyKey="@Properties.raceNotes" title="@Strings.RaceNotesTitle">
+        <settingConfig type="alphaNumeric" />
+    </setting>
+    <setting propertyKey="@Properties.passedCount" title="@Strings.PassedCountTitle">
+        <settingConfig type="numeric" min="0" max="10" required="true" errorMessage="@Strings.PassedCountErrorMessage" />
+    </setting>
+</settings>
