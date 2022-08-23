@@ -13,10 +13,14 @@
                                                     minimum SDK version of the application
             "Monkey C: Edit Products" - Lets you add or remove any product
         -->
-        <iq:products>
-            <iq:product id="edge1030"/>
-            <iq:product id="edge530"/>
-            <iq:product id="edge830"/>
+        <iq:products> 
+            {% if ci %}
+                <iq:product id="fenix5"/>
+            {% else %}
+                <iq:product id="edge1030"/>
+                <iq:product id="edge530"/>
+                <iq:product id="edge830"/>
+            {% endif %}
         </iq:products>
         <!--
             Use "Monkey C: Edit Permissions" from the Visual Studio Code command
