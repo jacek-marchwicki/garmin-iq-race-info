@@ -1,0 +1,27 @@
+name: Run Unit Tests
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup manifest.xml
+        uses: cuchi/jinja2-action@v1.2.0
+        with:
+          template: manifest.xml.j2
+          output_file: manifest.xml
+          strict: true
+          variables: |
+            ci=True
+      - name: Test application
+        uses: matco/action-connectiq-tester@v1.0.1
+        with:
+          device: fenix5
